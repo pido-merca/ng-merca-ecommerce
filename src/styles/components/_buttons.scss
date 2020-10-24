@@ -1,0 +1,49 @@
+@use '../abstracts/mixins' as mixin;
+
+@mixin btn-strong(
+  $color: var(--white),
+  $background: var(--red-1),
+  $font-size: var(--f-12),
+  $lineHeight: normal,
+  $borderRadius: var(--border-radius-4),
+  $height: 70px,
+  $text-type: var(--normal-font)
+) {
+  color: $color;
+  background-color: $background;
+  transition: 0.3s;
+  line-height: $lineHeight;
+  border-radius: $borderRadius;
+  cursor: pointer;
+  font-size: $font-size;
+  height: $height;
+  font-family: $text-type;
+  padding: 0px 20px;
+}
+
+@mixin button-box-shadow($color: var(--red-1_rgb)) {
+  box-shadow: 0px 2px 2px 0px rgba($color, 0.05),
+    0px 4px 4px 0px rgba($color, 0.05), 0px 8px 8px 0px rgba($color, 0.05),
+    0px 16px 16px 0px rgba($color, 0.05), 0px 32px 32px 0px rgba($color, 0.05),
+    0px 64px 64px 0px rgba($color, 0.05);
+  -moz-box-shadow: 0px 2px 2px 0px rgba($color, 0.05),
+    0px 4px 4px 0px rgba($color, 0.05), 0px 8px 8px 0px rgba($color, 0.05),
+    0px 16px 16px 0px rgba($color, 0.05), 0px 32px 32px 0px rgba($color, 0.05),
+    0px 64px 64px 0px rgba($color, 0.05);
+  -webkit-box-shadow: 0px 2px 2px 0px rgba($color, 0.05),
+    0px 4px 4px 0px rgba($color, 0.05), 0px 8px 8px 0px rgba($color, 0.05),
+    0px 16px 16px 0px rgba($color, 0.05), 0px 32px 32px 0px rgba($color, 0.05),
+    0px 64px 64px 0px rgba($color, 0.05);
+}
+
+@mixin btn-primary-color() {
+  @include mixin.linear-gradient(
+    $direction: to right,
+    $direction-2: left,
+    $color1: var(--orange-1_rgb),
+    $opacity1: 1,
+    $color2: var(--red-1_rgb),
+    $opacity2: 1,
+    $stop: -38%
+  );
+}

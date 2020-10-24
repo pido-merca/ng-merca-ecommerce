@@ -1,0 +1,95 @@
+@mixin flex(
+  $alignItems: stretch,
+  $justifyContent: flex-start,
+  $direction: row
+) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $direction;
+}
+
+@mixin general-box-shadow(
+  $horizontal: 0px,
+  $vertical: 11px,
+  $blur: 7px,
+  $spread: -7px,
+  $color: var(--gray-1_rgb),
+  $opacity: 0.2,
+  $position: null
+) {
+  box-shadow: $position $horizontal $vertical $blur $spread
+    rgba($color, $opacity);
+  -moz-box-shadow: $position $horizontal $vertical $blur $spread
+    rgba($color, $opacity);
+  -webkit-box-shadow: $position $horizontal $vertical $blur $spread
+    rgba($color, $opacity);
+}
+
+@mixin general-box-shadow-none() {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+@mixin linear-gradient(
+  $direction: 180deg,
+  $direction-2: 180deg,
+  $color1: var(--red-1_rgb),
+  $opacity1: 1,
+  $color2: var(--orange-2_rgb),
+  $opacity2: 1,
+  $stop: 0%
+) {
+  background: linear-gradient(
+    $direction,
+    rgba($color1, $opacity1) $stop,
+    rgba($color2, $opacity2) 100%
+  );
+  background: -webkit-linear-gradient(
+    $direction-2,
+    rgba($color1, $opacity1) $stop,
+    rgba($color2, $opacity2) 100%
+  );
+}
+
+@mixin background-image() {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+@mixin text-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin transparent-scroll() {
+  &::-webkit-scrollbar {
+    background: var(--transparent);
+    width: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--transparent);
+    width: 0px;
+  }
+}
+
+@mixin scroll($horizontal: false, $size: 4px, $color: var(--gray-5)) {
+  &::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    @if $horizontal {
+      height: $size;
+    } @else {
+      width: $size;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $color;
+  }
+}
