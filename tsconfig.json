@@ -17,18 +17,12 @@
       "dom"
     ],
     "paths": {
-      "@app/*": [
-        "app/*"
-      ],
-      "@core/*": [
-        "src/app/core/*"
-      ],
-      "@pages/*": [
-        "src/app/pages/*"
-      ],
-      "@environment": [
-        "environments/environment.ts"
-      ],
+      "@app/*": ["src/app/*"],
+      "@core/*": ["src/app/core/*"],
+      "@environment": ["src/environments/environment.ts"],
+      "@utils": ["src/app/utils/*"],
+      "@pages": ["src/app/pages/*"],
+      "@shared": ["src/app/pages/shared/*"],
     }
   }
 }
