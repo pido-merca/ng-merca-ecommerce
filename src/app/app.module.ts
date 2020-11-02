@@ -1,22 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TranslateBrowserModule } from './browser/translate-browser.module';
-import { TranslatePipe } from './pages/pipes/translate.pipe';
+import { AppBrowserModule } from './browser/app-browser.module';
+import { TranslocoBrowserModule } from './browser/transloco-browser.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TranslatePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    TranslateBrowserModule
+    AppBrowserModule,
+    BrowserAnimationsModule,
+    TranslocoBrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
