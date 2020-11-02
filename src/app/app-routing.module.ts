@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-const routes: Routes = [];
+export const homeRootAnimation = 'Home';
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
+    data: {
+      animation: homeRootAnimation
+    },
+  },
+];
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
