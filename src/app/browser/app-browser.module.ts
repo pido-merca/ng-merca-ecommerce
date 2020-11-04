@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SessionStorage } from '@core/models/session-storage';
+import { BrowserProperties } from '@core/models/browser-properties';
+import { LocalStorage } from '@core/models/local-storage';
 
 import {
   BROWSER_PROPERTIES,
-  IS_BROWSER,
   IS_MOBILE,
+  IS_BROWSER,
   LOCAL_STORAGE,
   SESSION_STORAGE,
-} from '@app/core/tokens/app.tokens';
-
-import { SessionStorage } from '@app/core/models/session-storage';
-import { BrowserProperties } from '@app/core/models/browser-properties';
-import { LocalStorage } from '@app/core/models/local-storage';
+} from '@core/tokens/app.tokens';
 
 export function getLocalStorage(): LocalStorage {
   return {
@@ -105,12 +104,8 @@ export function isMobile(): boolean {
   );
 }
 
-
-
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   providers: [
     { provide: IS_BROWSER, useValue: true },
     { provide: IS_MOBILE, useFactory: isMobile, deps: [] },
@@ -119,4 +114,4 @@ export function isMobile(): boolean {
     { provide: BROWSER_PROPERTIES, useFactory: browserProperties, deps: [] },
   ],
 })
-export class AppBrowserModule { }
+export class AppBrowserModule {}
