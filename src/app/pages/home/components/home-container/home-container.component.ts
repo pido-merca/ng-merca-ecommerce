@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { IS_MOBILE } from '@app/core/tokens/app.tokens';
+import { IS_MOBILE } from '@core/tokens/app.tokens';
 
 @Component({
   selector: 'app-home-container',

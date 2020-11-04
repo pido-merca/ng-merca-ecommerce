@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Depositos Duque",
+    "products": [
+      {
+        "name": "Detergente",
+        "img": "assets/img/detergent.jpg",
+        "price": "12000",
+        "quantity": 1
+      },
+      {
+        "name": "Fab",
+        "img": "assets/img/detergent.jpg",
+        "price": "12000",
+        "quantity": 4
+      }
+    ]
+  }
+]

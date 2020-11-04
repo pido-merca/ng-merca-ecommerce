@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Detergente",
+        "img": "assets/img/detergent.jpg",
+        "price": "12000"
+    },
+    {
+        "name": "Fab",
+        "img": "assets/img/detergent.jpg",
+        "price": "12000"
+    }
+]
