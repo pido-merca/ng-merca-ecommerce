@@ -1,0 +1,53 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.background-banner {
+  position: relative;
+  background-image: url("/assets/img/banner.jpg");
+  background-size: cover;
+  min-height: 150px;
+  .background-overlay {
+    position: absolute;
+    background: rgba(85, 82, 82, 0.5);
+    width: 100%;
+    height: 100%;
+  }
+  .search-container {
+    @include mixin.flex(center);
+    .input-button {
+      border-radius: var(--border-radius-0);
+      border-bottom-left-radius: var(--border-radius-14);
+      border-top-left-radius: var(--border-radius-14);
+      border-right: 1px solid var(--white);
+    }
+    .btn-outline-light {
+      border-radius: var(--border-radius-0);
+      border-top-right-radius: var(--border-radius-14);
+      border-bottom-right-radius: var(--border-radius-14);
+    }
+  }
+}
+
+.img-user {
+  margin-top: -50px;
+  img {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (min-width: breakpoint.$break-tablet) {
+  .background-banner {
+    min-height: 200px;
+  }
+  .input-group {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .img-user {
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+}

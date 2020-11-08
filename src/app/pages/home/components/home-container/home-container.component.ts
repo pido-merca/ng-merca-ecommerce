@@ -1,5 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { ListCategories } from '@app/core/models/categories.interface';
 import { IS_MOBILE } from '@core/tokens/app.tokens';
+import { Observable } from 'rxjs';
+import { HomeFacade } from '@home/home.facade';
 
 @Component({
   selector: 'app-home-container',
@@ -7,8 +10,16 @@ import { IS_MOBILE } from '@core/tokens/app.tokens';
   styleUrls: ['./home-container.component.scss'],
 })
 export class HomeContainerComponent implements OnInit {
+  constructor(
+    @Inject(IS_MOBILE) public isMobile: boolean,
+    private homeFacade: HomeFacade
+  ) {}
 
-  constructor(@Inject(IS_MOBILE) public isMobile: boolean) {}
+  ngOnInit(): void {
+    this.homeFacade.fetchAllCategories();
+  }
 
-  ngOnInit(): void {}
+  get allCategories$(): Observable<ListCategories[]> {
+    return this.homeFacade.categoriesData$;
+  }
 }

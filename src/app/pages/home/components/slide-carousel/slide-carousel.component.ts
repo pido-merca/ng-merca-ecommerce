@@ -31,7 +31,6 @@ export class SlideCarouselComponent implements AfterViewInit {
   }
 
   showLeft(): void {
-    console.log(this.content.nativeElement.scrollLeft);
     this.arrowLeft = this.content?.nativeElement.scrollLeft > 0;
   }
 
@@ -40,7 +39,6 @@ export class SlideCarouselComponent implements AfterViewInit {
       this.content?.nativeElement.scrollLeft +
         this.content?.nativeElement.clientWidth <
       this.content?.nativeElement.scrollWidth;
-    console.log(this.arrowRight);
   }
 
   private detectChanges(): void {

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 p-0">
+      <div
+        class="categories-container text-center container-width"
+        #sectionSlide
+      >
+        <a
+          href="#"
+          *ngFor="
+            let item of listCategories
+          "
+          #itemSlide
+          >{{item.name}}</a
+        >
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="!isMobile">
+    <div class="previous-button" (click)="previous()" *ngIf="arrowLeft">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="next-button" (click)="next()" *ngIf="arrowRight">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </ng-container>
+  
+</div>

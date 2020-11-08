@@ -1,0 +1,65 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.container {
+  position: relative;
+}
+
+.categories-container {
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
+  @include mixin.transparent-scroll();
+  a {
+    margin-bottom: 5px;
+    padding: 5px 20px;
+    display: inline-block;
+    color: var(--black);
+    text-align: center;
+    text-decoration: none;
+    border-right: 2px solid var(--red-1);
+  }
+  a:last-child {
+    border-right: none;
+  }
+  a:hover {
+    background-color: var(--gray-4);
+  }
+}
+
+.next-button, .previous-button {
+  @include mixin.flex(center, center);
+  position: absolute;
+  cursor: pointer;
+  top: 35%;
+  font-size: var(--f-26);
+  border-radius: 50%;
+  background: var(--white);
+  height: 40px;
+  width: 40px;
+}
+.previous-button {
+  @include mixin.general-box-shadow(0px, -6px, 10px, 0px, var(--gray-1_rgb), 0.16);
+  transform: rotate(-90deg);
+  left: -0.5%;
+  top: -4px;
+  i {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+}
+.next-button {
+  @include mixin.general-box-shadow(0px, 6px, 10px, 0px, var(--gray-1_rgb), 0.16);
+  transform: rotate(-90deg);
+  right: -1.5%;
+  top: -4px;
+}
+
+
+@media (min-width: breakpoint.$break-tablet) {
+  .categories-container {
+    overflow: hidden;
+    @include mixin.scroll(true, 4px, var(--gray-2));
+  }
+}
