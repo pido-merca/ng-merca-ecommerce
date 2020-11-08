@@ -14,6 +14,7 @@ import { ListProducts } from '@app/core/models/products.interface';
   selector: 'app-slide-carousel',
   templateUrl: './slide-carousel.component.html',
   styleUrls: ['./slide-carousel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SlideCarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('sectionSlide') content: ElementRef;

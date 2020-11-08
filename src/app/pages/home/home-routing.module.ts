@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeContainerComponent } from '@home/components/home-container/home-container.container';
+import { HomeItemComponent } from './components/home-item/home-item.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeContainerComponent,
-  }
+  },
+  {
+    path: ':category',
+    component: HomeItemComponent,
+  },
 ];
 
 @NgModule({

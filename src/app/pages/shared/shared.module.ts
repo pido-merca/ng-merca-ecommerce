@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@ngneat/transloco';
 import { SlideCategoriesComponent } from '@shared/components/slide-categories/slide-categories.component';
+import { CardProductsComponent } from './components/card-products/card-products.component';
 
 
 
 @NgModule({
-  declarations: [SlideCategoriesComponent],
+  declarations: [SlideCategoriesComponent, CardProductsComponent],
   imports: [
     CommonModule,
     TranslocoModule
   ],
   exports: [
     SlideCategoriesComponent,
+    CardProductsComponent,
     TranslocoModule
   ]
 })

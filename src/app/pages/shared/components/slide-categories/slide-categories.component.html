@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12 p-0">
-      <div
-        class="categories-container text-center"
-        #sectionSlide
-      >
-        <div class="category" *ngFor="let item of listCategories" #itemSlide>
+      <div class="categories-container text-center" #sectionSlide>
+        <div
+          class="category"
+          *ngFor="let item of listCategories"
+          [class.active]="isActive(item.name)"
+          #itemSlide
+          (click)="redirectHomeItem(item.name)"
+        >
           {{ item.name }}
         </div>
       </div>

@@ -24,6 +24,9 @@
     font-family: var(--bold-font);
     font-size: var(--f-14);
     cursor: pointer;
+    &.active {
+      color: var(--red-1);
+    }
   }
   .category:hover {
     color: var(--red-1);
@@ -43,14 +46,7 @@
   width: 40px;
 }
 .previous-button {
-  @include mixin.general-box-shadow(
-    0px,
-    -6px,
-    10px,
-    0px,
-    var(--gray-1_rgb),
-    0.16
-  );
+  @include mixin.general-box-shadow(0px,-6px,10px,0px,var(--gray-1_rgb),0.16);
   transform: rotate(-90deg);
   left: -0.5%;
   top: -4px;
@@ -60,14 +56,7 @@
   }
 }
 .next-button {
-  @include mixin.general-box-shadow(
-    0px,
-    6px,
-    10px,
-    0px,
-    var(--gray-1_rgb),
-    0.16
-  );
+  @include mixin.general-box-shadow(0px,6px,10px,0px,var(--gray-1_rgb),0.16);
   transform: rotate(-90deg);
   right: -1.5%;
   top: -4px;

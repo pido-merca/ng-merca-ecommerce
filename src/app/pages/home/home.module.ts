@@ -12,6 +12,7 @@ import { homeFeatureName, HomeState } from '@home/store/state/home.state';
 import { homeRootReducer } from '@home/store/reducers';
 import { HomeEffects } from '@home/store/effects/home.effects';
 import { HomeFacade } from '@home/home.facade';
+import { HomeItemComponent } from './components/home-item/home-item.component';
 
 export const FEATURE_REDUCER_TOKEN = new InjectionToken<
   ActionReducerMap<HomeState>
@@ -21,6 +22,7 @@ export const FEATURE_REDUCER_TOKEN = new InjectionToken<
   declarations: [
     HomeContainerComponent,
     SlideCarouselComponent,
+    HomeItemComponent,
   ],
   imports: [
     CommonModule,

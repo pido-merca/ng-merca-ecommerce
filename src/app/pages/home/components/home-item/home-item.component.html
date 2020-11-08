@@ -1,0 +1,23 @@
+<ng-container *ngIf="(allCategories$ | async).length">
+  <section class="mt-2">
+    <app-slide-categories
+      [listCategories]="allCategories$ | async"
+      [isMobile]="isMobile$ | async"
+    ></app-slide-categories>
+  </section>
+</ng-container>
+
+<ng-container *ngIf="(allProducts$ | async).length">
+  <section class="mt-2">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-3 col-md-4 col-6 mb-3"
+          *ngFor="let product of (allProducts$ | async)"
+        >
+          <app-card-products [product]="product"></app-card-products>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
