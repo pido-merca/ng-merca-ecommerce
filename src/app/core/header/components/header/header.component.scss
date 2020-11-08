@@ -36,30 +36,6 @@
   }
 }
 
-.categories-container {
-  @include mixin.transparent-scroll();
-  overflow: auto;
-  white-space: nowrap;
-  max-width: 100%;
-  text-align: center;
-  a {
-    margin-bottom: 5px;
-    padding: 5px 20px;
-    display: inline-block;
-    color: var(--black);
-    text-align: center;
-    text-decoration: none;
-    border-right: 2px solid var(--red-1);
-  }
-  a:last-child {
-    border-right: none;
-  }
-  a:hover {
-    background-color: var(--gray-4);
-  }
-}
-
-
 @media (min-width: breakpoint.$break-tablet) {
   .background-banner {
     min-height: 200px;
@@ -73,8 +49,5 @@
       height: 80px;
       width: 80px;
     }
-  }
-  .categories-container {
-    @include mixin.scroll(true, 4px, var(--gray-2));
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IS_BROWSER } from '@core/tokens/app.tokens';
-import { routeAnimations } from '@app/pages/ux/animations/routing-animation';
+import { routeAnimations } from '@pages/ux/animations/routing-animation';
 
 @Component({
   selector: 'app-root',
