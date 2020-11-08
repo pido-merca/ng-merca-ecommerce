@@ -1,1 +1,1 @@
-export * from '@home/store/actions/categories.actions';
+export * from '@app/pages/home/store/actions/home.actions';

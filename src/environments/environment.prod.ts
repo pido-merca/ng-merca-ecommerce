@@ -3,6 +3,7 @@ export const environment = {
   defaultLocale: 'es',
   missingKey: false,
   api: {
-    categories: 'assets/data/categories.json'
-  }
+    categories: 'assets/data/categories.json',
+    products: 'assets/data/products.json',
+  },
 };

@@ -1,10 +1,10 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { ListCategories } from '@app/core/models/categories.interface';
@@ -13,8 +13,10 @@ import { ListCategories } from '@app/core/models/categories.interface';
   selector: 'app-slide-categories',
   templateUrl: './slide-categories.component.html',
   styleUrls: ['./slide-categories.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SlideCategoriesComponent implements OnInit, AfterViewInit {
+export class SlideCategoriesComponent implements AfterViewInit {
+
   @ViewChild('sectionSlide') content: ElementRef;
   @ViewChild('itemSlide') item: ElementRef;
 
@@ -25,10 +27,6 @@ export class SlideCategoriesComponent implements OnInit, AfterViewInit {
   public arrowRight = false;
 
   constructor(private changeDetector: ChangeDetectorRef) {}
-
-  ngOnInit(): void {
-    console.log(this.listCategories);
-  }
 
   ngAfterViewInit(): void {
     this.detectChanges();

@@ -1,10 +1,14 @@
 @use "abstracts/mixins" as mixin;
 @use "abstracts/breakpoints" as breakpoint;
 
+.container {
+  position: relative;
+}
+
 .wrapper {
   position: relative;
-  overflow-x: hidden;
-  display: block;
+  overflow-x: auto;
+  display: block !important;
   white-space: nowrap;
   &.row {
     flex-wrap: nowrap;

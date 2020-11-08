@@ -2,6 +2,10 @@
     "HOME": {
         "SEARCH-PLACEHOLDER": "¿Deseas buscar algún producto?",
         "SUPER-OFFERS": "Súper ofertas",
+        "BEST-SELLERS": "Más vendidos",
         "SEE-MORE": "Ver más"
+    },
+    "CART": {
+        "CART-BUTTON": "Agregar"
     }
 }

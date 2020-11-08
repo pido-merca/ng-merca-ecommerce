@@ -5,26 +5,29 @@ import {
   Component,
   ElementRef,
   Input,
+  OnInit,
   ViewChild,
 } from '@angular/core';
+import { ListProducts } from '@app/core/models/products.interface';
 
 @Component({
   selector: 'app-slide-carousel',
   templateUrl: './slide-carousel.component.html',
   styleUrls: ['./slide-carousel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SlideCarouselComponent implements AfterViewInit {
-
+export class SlideCarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('sectionSlide') content: ElementRef;
   @ViewChild('itemSlide') item: ElementRef;
 
   @Input() isMobile: boolean;
+  @Input() products: ListProducts[];
 
   public arrowLeft = false;
   public arrowRight = false;
 
   constructor(private changeDetector: ChangeDetectorRef) {}
+
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.detectChanges();

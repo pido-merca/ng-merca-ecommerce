@@ -6,7 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from '@shared/shared.module';
 
 import { HomeRoutingModule } from '@home/home-routing.module';
-import { HomeContainerComponent } from '@home/components/home-container/home-container.component';
+import { HomeContainerComponent } from '@app/pages/home/components/home-container/home-container.container';
 import { SlideCarouselComponent } from '@home/components/slide-carousel/slide-carousel.component';
 import { homeFeatureName, HomeState } from '@home/store/state/home.state';
 import { homeRootReducer } from '@home/store/reducers';
@@ -15,23 +15,26 @@ import { HomeFacade } from '@home/home.facade';
 
 export const FEATURE_REDUCER_TOKEN = new InjectionToken<
   ActionReducerMap<HomeState>
-  >('Feature Reducers');
+>('Feature Reducers');
 
 @NgModule({
-  declarations: [HomeContainerComponent, SlideCarouselComponent],
+  declarations: [
+    HomeContainerComponent,
+    SlideCarouselComponent,
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     StoreModule.forFeature(homeFeatureName, FEATURE_REDUCER_TOKEN),
     EffectsModule.forFeature([HomeEffects]),
-    SharedModule
+    SharedModule,
   ],
   providers: [
     HomeFacade,
     {
       provide: FEATURE_REDUCER_TOKEN,
-      useValue: homeRootReducer
+      useValue: homeRootReducer,
     },
-  ]
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

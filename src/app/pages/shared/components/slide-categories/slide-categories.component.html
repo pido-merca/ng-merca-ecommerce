@@ -2,17 +2,12 @@
   <div class="row">
     <div class="col-12 p-0">
       <div
-        class="categories-container text-center container-width"
+        class="categories-container text-center"
         #sectionSlide
       >
-        <a
-          href="#"
-          *ngFor="
-            let item of listCategories
-          "
-          #itemSlide
-          >{{item.name}}</a
-        >
+        <div class="category" *ngFor="let item of listCategories" #itemSlide>
+          {{ item.name }}
+        </div>
       </div>
     </div>
   </div>
@@ -24,5 +19,4 @@
       <i class="fas fa-chevron-down"></i>
     </div>
   </ng-container>
-  
 </div>

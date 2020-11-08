@@ -5,8 +5,9 @@ import { map } from 'rxjs/operators';
 import { State } from '@app/store/state/state';
 
 import { homeRootSelector } from '@home/store/selectors/home.selectors';
-import { loadCategoriesDataAction } from '@home/store/actions';
+import { loadCategoriesDataAction, loadProductsDataAction } from '@home/store/actions';
 import { ListCategories } from '@app/core/models/categories.interface';
+import { ListProducts } from '@app/core/models/products.interface';
 
 
 @Injectable()
@@ -19,7 +20,16 @@ export class HomeFacade {
     map((state) => state.listCategories)
   );
 
+  public productsData$: Observable<ListProducts[]> = this.store.pipe(
+    select(homeRootSelector),
+    map((state) => state.listProducts)
+  );
+
   public fetchAllCategories(): void {
     this.store.dispatch(loadCategoriesDataAction());
+  }
+
+  public fetchAllProducts(): void {
+    this.store.dispatch(loadProductsDataAction());
   }
 }

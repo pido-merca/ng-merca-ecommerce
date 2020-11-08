@@ -6,14 +6,18 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   loadCategoriesDataAction,
   loadCategoriesDataSuccess,
+  loadProductsDataAction,
+  loadProductsDataSuccess,
 } from '@home/store/actions';
 import { CategoriesService } from '@app/core/services/categories.service';
+import { ProductsService } from '@app/core/services/products.service';
 
 @Injectable()
 export class HomeEffects {
   constructor(
     private action$: Actions,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private productsService: ProductsService,
   ) {}
 
   fetchCategoriesData$: Observable<Action> = createEffect(() =>
@@ -26,4 +30,15 @@ export class HomeEffects {
       })
     )
   );
+
+  fetchProductsData$: Observable<Action> = createEffect(() =>
+  this.action$.pipe(
+    ofType(loadProductsDataAction),
+    switchMap(() => this.productsService.fetchAllProducts()),
+    map((response) => loadProductsDataSuccess({ products: response })),
+    catchError(() => {
+      return EMPTY;
+    })
+  )
+);
 }
