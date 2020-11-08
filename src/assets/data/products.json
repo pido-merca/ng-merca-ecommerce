@@ -1,12 +1,135 @@
 [
-    {
-        "name": "Detergente",
-        "img": "assets/img/detergent.jpg",
-        "price": "12000"
-    },
-    {
-        "name": "Fab",
-        "img": "assets/img/detergent.jpg",
-        "price": "12000"
-    }
+  {
+    "id": 1,
+    "categories": "Frutas",
+    "name": "Detergente",
+    "img": "assets/img/pexels-alex-andrews-821651.jpg",
+    "price": 1200
+  },
+  {
+    "id": 2,
+    "categories": "Frutas",
+    "name": "Fab",
+    "img": "assets/img/pexels-daria-shevtsova-1260968.jpg",
+    "price": 1200
+  },
+  {
+    "id": 3,
+    "categories": "Frutas",
+    "name": "jabón de ropa",
+    "img": "assets/img/pexels-dominika-roseclay-5462207.jpg",
+    "price": 4000
+  },
+  {
+    "id": 4,
+    "categories": "Frutas",
+    "name": "jabón de baño",
+    "img": "assets/img/pexels-eprism-studio-335257.jpg",
+    "price": 6000
+  },
+  {
+    "id": 5,
+    "categories": "Frutas",
+    "name": "desinfectante",
+    "img": "assets/img/pexels-gabriel-freytez-341523.jpg",
+    "price": 9000
+  },
+  {
+    "id": 6,
+    "categories": "Granos",
+    "name": "limpia pisos",
+    "img": "assets/img/pexels-jonathan-borba-2983099.jpg",
+    "price": 6500
+  },
+  {
+    "id": 7,
+    "categories": "Granos",
+    "name": "jabón de cocina",
+    "img": "assets/img/pexels-kaboompics-com-5956.jpg",
+    "price": 5000
+  },
+  {
+    "id": 8,
+    "categories": "Granos",
+    "name": "jabón para manos",
+    "img": "assets/img/pexels-karolina-grabowska-5625007.jpg",
+    "price": 3800
+  },
+  {
+    "id": 9,
+    "categories": "Granos",
+    "name": "limpia vidrios",
+    "img": "assets/img/pexels-laryssa-suaid-1667088.jpg",
+    "price": 6900
+  },
+  {
+    "id": 10,
+    "categories": "Granos",
+    "name": "limpia muebles",
+    "img": "assets/img/pexels-math-90946.jpg",
+    "price": 2300
+  },
+  {
+    "id": 11,
+    "categories": "Aseo",
+    "name": "arroz",
+    "img": "assets/img/pexels-pixabay-315755.jpg",
+    "price": 1500
+  },
+  {
+    "id": 12,
+    "categories": "Aseo",
+    "name": "azúcar",
+    "img": "assets/img/pexels-pixabay-327158.jpg",
+    "price": 1200
+  },
+  {
+    "id": 13,
+    "categories": "Aseo",
+    "name": "lenteja",
+    "img": "assets/img/pexels-rajesh-tp-1633578.jpg",
+    "price": 3000
+  },
+  {
+    "id": 14,
+    "categories": "Aseo",
+    "name": "avena",
+    "img": "assets/img/pexels-rania-alhamed-2454533.jpg",
+    "price": 1800
+  },
+  {
+    "id": 15,
+    "categories": "Aseo",
+    "name": "fríjol",
+    "img": "assets/img/pexels-robin-stickel-70497.jpg",
+    "price": 3500
+  },
+  {
+    "id": 16,
+    "categories": "Higiene Personal",
+    "name": "sal",
+    "img": "assets/img/pexels-valeria-boltneva-1199957.jpg",
+    "price": 800
+  },
+  {
+    "id": 17,
+    "categories": "Higiene Personal",
+    "name": "alverja",
+    "img": "assets/img/pexels-valeria-boltneva-1639557.jpg",
+    "price": 4200
+  },
+  {
+    "id": 18,
+    "categories": "Higiene Personal",
+    "name": "maíz",
+    "img": "assets/img/pexels-valeria-boltneva-1893556.jpg",
+    "price": 600
+  },
+  {
+    "id": 19,
+    "categories": "Higiene Personal",
+    "name": "trigo",
+    "img": "assets/img/pexels-venus.jpg",
+    "price": 3000
+  }
 ]

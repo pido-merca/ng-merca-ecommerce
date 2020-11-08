@@ -8,30 +8,47 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ListProducts } from '@app/core/models/products.interface';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ListCategories } from '@app/core/models/categories.interface';
 
 @Component({
-  selector: 'app-slide-carousel',
-  templateUrl: './slide-carousel.component.html',
-  styleUrls: ['./slide-carousel.component.scss'],
+  selector: 'app-slide-categories',
+  templateUrl: './slide-categories.component.html',
+  styleUrls: ['./slide-categories.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SlideCarouselComponent implements OnInit, AfterViewInit {
+export class SlideCategoriesComponent implements OnInit, AfterViewInit {
   @ViewChild('sectionSlide') content: ElementRef;
   @ViewChild('itemSlide') item: ElementRef;
 
+  @Input() listCategories: ListCategories[];
   @Input() isMobile: boolean;
-  @Input() products: ListProducts[];
 
   public arrowLeft = false;
   public arrowRight = false;
+  public nameCategory: string;
 
-  constructor(private changeDetector: ChangeDetectorRef) {}
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.nameCategory = this.route.snapshot.paramMap.get('category');
+  }
 
   ngAfterViewInit(): void {
     this.detectChanges();
+  }
+
+  public redirectHomeItem(name: string): void {
+    this.nameCategory = name;
+    this.router.navigate(['/', name]);
+  }
+
+  public isActive(name: string): boolean {
+    return this.nameCategory === name;
   }
 
   showLeft(): void {

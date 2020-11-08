@@ -1,0 +1,70 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.container {
+  position: relative;
+}
+
+.categories-container {
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
+  padding: 0 15px 15px 15px;
+  @include mixin.transparent-scroll();
+  .category {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 15px;
+    height: 32px;
+    line-height: 1;
+    border-radius: var(--border-radius-16);
+    @include mixin.general-box-shadow(0, 6px, 10px, 0, var(--brown-1_rgb), 0.16);
+    background-color: #ffffff;
+    font-family: var(--bold-font);
+    font-size: var(--f-14);
+    cursor: pointer;
+    &.active {
+      color: var(--red-1);
+    }
+  }
+  .category:hover {
+    color: var(--red-1);
+  }
+}
+
+.next-button,
+.previous-button {
+  @include mixin.flex(center, center);
+  position: absolute;
+  cursor: pointer;
+  top: 35%;
+  font-size: var(--f-26);
+  border-radius: 50%;
+  background: var(--white);
+  height: 40px;
+  width: 40px;
+}
+.previous-button {
+  @include mixin.general-box-shadow(0px,-6px,10px,0px,var(--gray-1_rgb),0.16);
+  transform: rotate(-90deg);
+  left: -0.5%;
+  top: -4px;
+  i {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+}
+.next-button {
+  @include mixin.general-box-shadow(0px,6px,10px,0px,var(--gray-1_rgb),0.16);
+  transform: rotate(-90deg);
+  right: -1.5%;
+  top: -4px;
+}
+
+@media (min-width: breakpoint.$break-tablet) {
+  .categories-container {
+    overflow: hidden;
+    @include mixin.scroll(true, 4px, var(--gray-2));
+  }
+}

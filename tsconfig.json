@@ -19,10 +19,12 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@core/*": ["src/app/core/*"],
+      "@header/*": ["src/app/core/header/*"],
       "@environment": ["src/environments/environment.ts"],
       "@utils": ["src/app/utils/*"],
-      "@pages": ["src/app/pages/*"],
-      "@shared": ["src/app/pages/shared/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@shared/*": ["src/app/pages/shared/*"],
+      "@home/*": ["src/app/pages/home/*"],
     }
   }
 }

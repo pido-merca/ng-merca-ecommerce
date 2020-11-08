@@ -1,5 +1,14 @@
 [
     {
-        "name": "frutas"
+        "name": "Frutas"
+    },
+    {
+        "name": "Granos"
+    },
+    {
+        "name": "Aseo"
+    },
+    {
+        "name": "Higiene Personal"
     }
 ]

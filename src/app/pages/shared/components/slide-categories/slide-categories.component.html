@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="wrapper row">
-    <div class="col-12 buffer">
-      <div class="row slide-carousel" #sectionSlide>
+  <div class="row">
+    <div class="col-12 p-0">
+      <div class="categories-container text-center" #sectionSlide>
         <div
-          class="col-lg-3 col-md-4 col-6"
+          class="category"
+          *ngFor="let item of listCategories"
+          [class.active]="isActive(item.name)"
           #itemSlide
-          *ngFor="let product of products"
+          (click)="redirectHomeItem(item.name)"
         >
-          <app-card-products [product]="product"></app-card-products>
+          {{ item.name }}
         </div>
       </div>
     </div>

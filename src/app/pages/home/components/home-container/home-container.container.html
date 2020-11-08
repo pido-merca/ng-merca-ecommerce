@@ -1,0 +1,60 @@
+<ng-container *ngIf="(allCategories$ | async).length">
+  <section class="mt-2">
+    <app-slide-categories
+      [listCategories]="allCategories$ | async"
+      [isMobile]="isMobile$ | async"
+    ></app-slide-categories>
+  </section>
+</ng-container>
+
+<ng-container *ngIf="(allProducts$ | async).length">
+  <section>
+    <div class="container mb-3 pt-2">
+      <div class="row">
+        <div class="col-8 col-md-6 col-lg-6">
+          <h5>{{ "HOME.SUPER-OFFERS" | transloco }}</h5>
+        </div>
+        <div class="col-4 col-md-6 col-lg-6 d-flex justify-content-end">
+          <h6 class="h6">
+            {{ "HOME.SEE-MORE" | transloco
+            }}<i class="fas fa-chevron-right ml-2"></i>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <app-slide-carousel
+      [isMobile]="isMobile$ | async"
+      [products]="allProducts$ | async"
+    ></app-slide-carousel>
+  </section>
+
+  <section>
+    <div class="container mb-3 pt-2">
+      <div class="row">
+        <div class="col-8 col-md-6 col-lg-6">
+          <h5>{{ "HOME.BEST-SELLERS" | transloco }}</h5>
+        </div>
+        <div class="col-4 col-md-6 col-lg-6 d-flex justify-content-end">
+          <h6 class="h6">
+            {{ "HOME.SEE-MORE" | transloco
+            }}<i class="fas fa-chevron-right ml-2"></i>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <app-slide-carousel
+      [isMobile]="isMobile$ | async"
+      [products]="allProducts$ | async"
+    ></app-slide-carousel>
+  </section>
+</ng-container>
+
+<!-- Inicio Boton de canasta 
+<div class="fixed-bottom text-center">
+  <button type="button" class="btn btn-primary font-weight-bold">
+    <span class="badge-pill badge-light mr-2">10</span>
+    VER CANASTA
+  </button>
+</div>
+-->
+<!-- Fin Boton de canasta -->
