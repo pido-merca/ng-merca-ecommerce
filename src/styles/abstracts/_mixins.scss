@@ -76,7 +76,12 @@
   }
 }
 
-@mixin scroll($horizontal: false, $size: 4px, $color: var(--gray-5)) {
+@mixin animate($time: 0.3s, $velocity: linear, $property: all) {
+  transition: $property $time $velocity;
+}
+
+
+@mixin scroll($horizontal: false, $size: 4px, $color: var(--orange-1)) {
   &::-webkit-scrollbar-track {
     border-radius: 20px;
     background-color: transparent;

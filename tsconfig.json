@@ -24,6 +24,7 @@
       "@environment": ["src/environments/environment.ts"],
       "@utils": ["src/app/utils/*"],
       "@pages/*": ["src/app/pages/*"],
+      "@ux/*": ["src/app/pages/ux/*"],
       "@shared/*": ["src/app/pages/shared/*"],
       "@home/*": ["src/app/pages/home/*"],
     }

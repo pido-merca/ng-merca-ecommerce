@@ -4,18 +4,12 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { SlideCategoriesComponent } from '@shared/components/slide-categories/slide-categories.component';
 import { CardProductsComponent } from './components/card-products/card-products.component';
 
-
-
 @NgModule({
-  declarations: [SlideCategoriesComponent, CardProductsComponent],
-  imports: [
-    CommonModule,
-    TranslocoModule
-  ],
-  exports: [
+  declarations: [
     SlideCategoriesComponent,
-    CardProductsComponent,
-    TranslocoModule
-  ]
+    CardProductsComponent
+  ],
+  imports: [CommonModule, TranslocoModule],
+  exports: [SlideCategoriesComponent, CardProductsComponent, TranslocoModule],
 })
-export class SharedModule { }
+export class SharedModule {}

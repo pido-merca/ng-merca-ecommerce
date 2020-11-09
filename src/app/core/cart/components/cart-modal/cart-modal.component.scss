@@ -1,0 +1,64 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.cart-modal {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;  
+  height: 100vh;
+  padding: 24px 15px 30px 22px;
+  background-color: var(--gray-6);
+  transform: translateX(100%);
+  transition: transform 0.8s ease-in-out;
+  @include mixin.general-box-shadow(0px,6px,32px,0px,var(--brown-1_rgb),0.16);
+  &.active {
+    transform: translateX(0%);
+  }
+  .media {
+    align-items: center;
+  }
+  .cart-wrapper {
+    height: calc(100% - 100px);
+    overflow-y: auto; 
+    @include mixin.scroll(false, 4px);
+  }
+  .list-group-item {
+    border: none;
+    margin-bottom: 10px;
+    @include mixin.general-box-shadow(0px,6px,6px,0px,var(--brown-1_rgb),0.16);
+    .media {
+        flex-direction: column;
+    }
+  }
+}
+
+.modal-bg {
+  opacity: 0;
+  visibility: 0;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include mixin.animate();
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgba(var(--gray-1_rgb), 0.35);
+    z-index: 1;
+  }
+}
+
+@media (min-width: breakpoint.$break-tablet) {
+    .cart-modal {
+        width: 50%;
+        .list-group-item {
+            .media {
+                flex-direction: row;
+            }
+        }    
+    }
+  }

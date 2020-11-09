@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cart-bottom',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-bottom.component.scss']
 })
 export class CartBottomComponent implements OnInit {
+
+  @Output() clickOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 

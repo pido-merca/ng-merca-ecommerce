@@ -44,8 +44,7 @@
     *ngIf="!isHome"
     [class.animation]="headerAnimation"
     placement="right"
-    ngbTooltip="'HEADER.BACK-HOME' | transloco"
   >
-    <i class="fas fa-home"></i>
+    <i class="fas fa-home" (click)="toggleTooltip(true)"></i>
   </span>
 </ng-container>

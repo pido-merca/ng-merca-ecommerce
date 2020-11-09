@@ -20,9 +20,11 @@ import { homeRootRoute } from '@home/home-routing.module';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements AfterViewInit {
+
   public headerAnimation = false;
   private scrollTopAnimation = 190;
   public isHome: boolean;
+  public showTooltip: boolean;
 
   constructor(
     private router: Router,
@@ -87,5 +89,9 @@ export class HeaderComponent implements AfterViewInit {
 
   public goHome(): void {
     this.router.navigate([homeRootRoute]);
+  }
+
+  public toggleTooltip(value: boolean): void {
+    this.showTooltip = value;
   }
 }
