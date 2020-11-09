@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  Inject,
+} from '@angular/core';
 import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 import { IS_BROWSER } from '@app/core/tokens/app.tokens';
 import { HeaderFacade } from '@header/header.facade';
@@ -6,20 +12,36 @@ import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Header } from '@header/components/interfaces/header.interface';
 import { HEADER_STYLE } from '@header/constants/header-constants';
+import { homeRootRoute } from '@home/home-routing.module';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements AfterViewInit {
+  public headerAnimation = false;
+  private scrollTopAnimation = 190;
+  public isHome: boolean;
+
   constructor(
     private router: Router,
     private facade: HeaderFacade,
+    private changeDetector: ChangeDetectorRef,
     @Inject(IS_BROWSER) public isBrowser: boolean
   ) {}
 
-  ngOnInit(): void {}
+  @HostListener('window:scroll', ['$event']) onWindowScroll(
+    event: Event
+  ): void {
+    const offset =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    this.headerAnimation = offset >= this.scrollTopAnimation;
+    this.changeDetector.detectChanges();
+  }
 
   ngAfterViewInit(): void {
     if (this.isBrowser) {
@@ -36,6 +58,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
               this.facade.setHeaderStyle(router.snapshot.data.header_style);
             }
           }
+          if (router instanceof NavigationEnd) {
+            this.isHome = this.IsRootHome;
+          }
         });
     }
   }
@@ -48,7 +73,19 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     return HEADER_STYLE.BANNER;
   }
 
+  get currentRoute(): string {
+    return this.router.url.split('?')[0];
+  }
+
+  get IsRootHome(): boolean {
+    return this.currentRoute === homeRootRoute;
+  }
+
   public typeHeaderBanner(typeHeader: string): boolean {
     return typeHeader === this.headerTypeBanner;
+  }
+
+  public goHome(): void {
+    this.router.navigate([homeRootRoute]);
   }
 }

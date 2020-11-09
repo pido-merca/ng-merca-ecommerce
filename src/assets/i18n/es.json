@@ -1,4 +1,7 @@
 {
+    "HEADER": {
+       "BACK-HOME": "Regresar al inicio"
+    },
     "HOME": {
         "SEARCH-PLACEHOLDER": "¿Deseas buscar algún producto?",
         "SUPER-OFFERS": "Súper ofertas",
@@ -6,6 +9,8 @@
         "SEE-MORE": "Ver más"
     },
     "CART": {
-        "CART-BUTTON": "Agregar"
+        "CART-BUTTON": "Agregar",
+        "CART-SHOW": "Ver carrito",
+        "CART-EMPTY": "Carrito vacio"
     }
 }

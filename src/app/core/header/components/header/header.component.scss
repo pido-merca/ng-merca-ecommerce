@@ -28,6 +28,46 @@
   }
 }
 
+.back-button {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: -80px;
+  text-align: center;
+  width: 34px;
+  height: 34px;
+  background-color: var(--white);
+  border-radius: 50%;
+  line-height: 34px;
+  margin-left: 15px;
+  cursor: pointer;
+  @include mixin.general-box-shadow(0px, 4px, 10px, 0px, var(--brown-1_rgb), 0.1);
+  i {
+    display: inline-block;
+    font-size: var(--f-14);
+    color: var(--gray-1);
+  }
+  &.top {
+    position: absolute;
+    top: 8px;
+  }
+  &.animation {
+    top: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: top 10s;
+    -ms-transition: top 10s;
+    -o-transition: top 10s;
+    transition: all 0.5s ease;
+    animation: smoothScroll 1.2s forwards;
+  }
+  &:hover {
+    background-color: var(--gray-1);
+    i {
+      color: var(--white);
+    }
+  }
+}
+
 .img-user {
   margin-top: -50px;
   img {

@@ -16,8 +16,6 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 
 import { environment } from '@environment';
-import { FormsModule } from '@angular/forms';
-
 
 export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
 
@@ -36,8 +34,7 @@ export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
       maxAge: 25,
       logOnly: environment.production,
     }),
-    CoreModule,
-    FormsModule,
+    CoreModule
   ],
   providers: [
     AppFacade,

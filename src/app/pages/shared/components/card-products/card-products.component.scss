@@ -2,14 +2,7 @@
 @use "abstracts/breakpoints" as breakpoint;
 
 .card {
-  @include mixin.general-box-shadow(
-    0px,
-    6px,
-    10px,
-    0px,
-    var(--gray-1_rgb),
-    0.16
-  );
+  @include mixin.general-box-shadow(0px,6px,10px,0px,var(--gray-1_rgb),0.16);
   border-radius: var(--border-radius-12);
   border: none;
   overflow: hidden;

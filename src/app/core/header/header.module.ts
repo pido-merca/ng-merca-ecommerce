@@ -12,7 +12,7 @@ import { headerRootReducer } from '@header/store/reducer';
 export const HEADER_REDUCER_TOKEN = new InjectionToken<
   ActionReducerMap<HeaderState>
   >('Feature Header Reducers');
-  
+
 @NgModule({
   declarations: [HeaderComponent],
   imports: [

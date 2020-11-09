@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderModule } from '@header/header.module';
+import { CartModule } from '@cart/cart.module';
 
 
 
@@ -8,10 +9,12 @@ import { HeaderModule } from '@header/header.module';
   declarations: [],
   imports: [
     CommonModule,
-    HeaderModule
+    HeaderModule,
+    CartModule
   ],
   exports: [
-    HeaderModule
+    HeaderModule,
+    CartModule
   ]
 })
 export class CoreModule { }

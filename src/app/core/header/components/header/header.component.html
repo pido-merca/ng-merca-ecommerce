@@ -1,4 +1,4 @@
-<ng-container *ngIf="(headerStyle$ | async) as style">
+<ng-container *ngIf="headerStyle$ | async as style">
   <div class="background-banner" *ngIf="typeHeaderBanner(style.classType)">
     <div class="background-overlay">
       <div class="container h-100">
@@ -28,8 +28,24 @@
   <div class="container img-user">
     <div class="row">
       <div class="col-12">
-        <img src="assets/img/user.jpg" loading="lazy" class="img-fluid rounded-circle" alt="" />
+        <img
+          src="assets/img/user.jpg"
+          loading="lazy"
+          class="img-fluid rounded-circle"
+          alt=""
+        />
       </div>
     </div>
   </div>
+  <span
+    class="back-button"
+    [class.top]="!isHome && !headerAnimation"
+    (click)="goHome()"
+    *ngIf="!isHome"
+    [class.animation]="headerAnimation"
+    placement="right"
+    ngbTooltip="'HEADER.BACK-HOME' | transloco"
+  >
+    <i class="fas fa-home"></i>
+  </span>
 </ng-container>

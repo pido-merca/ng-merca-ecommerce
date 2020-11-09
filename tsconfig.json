@@ -20,6 +20,7 @@
       "@app/*": ["src/app/*"],
       "@core/*": ["src/app/core/*"],
       "@header/*": ["src/app/core/header/*"],
+      "@cart/*": ["src/app/core/cart/*"],
       "@environment": ["src/environments/environment.ts"],
       "@utils": ["src/app/utils/*"],
       "@pages/*": ["src/app/pages/*"],
