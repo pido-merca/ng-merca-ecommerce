@@ -1,19 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CartShopping } from '@app/core/models/cart.interface';
-import { ListProducts } from '@app/core/models/products.interface';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-cart-bottom',
   templateUrl: './cart-bottom.component.html',
   styleUrls: ['./cart-bottom.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CartBottomComponent implements OnInit {
+export class CartBottomComponent {
 
   @Output() clickOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() total: number;
   constructor() {}
-
-  ngOnInit(): void {
-    console.log(this.total);
-  }
 }

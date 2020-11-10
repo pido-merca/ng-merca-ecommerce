@@ -27,6 +27,7 @@ export class CartService {
   public total$: Observable<number> = this.cartShopping$.pipe(
     map((cartShopping) => {
       let acum = 0;
+      if (!cartShopping.id) { return acum; }
       cartShopping.products.forEach((product) => {
         acum = acum + (product.price * product.quantity);
       });

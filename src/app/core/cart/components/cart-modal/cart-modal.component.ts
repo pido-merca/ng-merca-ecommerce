@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActionCart } from '@app/core/models/action-cart.interface';
 import { ListProducts } from '@app/core/models/products.interface';
 import { CartShopping } from '@core/models/cart.interface';
-import { actions } from '../../constants/cart.constants';
+import { actions } from '@cart/constants/cart.constants';
 
 @Component({
   selector: 'app-cart-modal',
   templateUrl: './cart-modal.component.html',
   styleUrls: ['./cart-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CartModalComponent implements OnInit {
+export class CartModalComponent {
 
   public addCart = actions.add;
   public removeCart = actions.remove;
@@ -22,8 +23,6 @@ export class CartModalComponent implements OnInit {
   >();
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   public toggleModal(): void {
     this.clickOpen.emit(!this.isOpen);
