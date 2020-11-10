@@ -11,7 +11,6 @@ import { actions } from '@cart/constants/cart.constants';
   providedIn: 'root',
 })
 export class CartService {
-
   private cartStorage: CartShopping;
   private cartShopping = new BehaviorSubject<CartShopping>({} as CartShopping);
   private idBusiness = 1;
@@ -27,9 +26,11 @@ export class CartService {
   public total$: Observable<number> = this.cartShopping$.pipe(
     map((cartShopping) => {
       let acum = 0;
-      if (!cartShopping.id) { return acum; }
+      if (!cartShopping.id) {
+        return acum;
+      }
       cartShopping.products.forEach((product) => {
-        acum = acum + (product.price * product.quantity);
+        acum = acum + product.price * product.quantity;
       });
       return acum;
     })
@@ -46,6 +47,16 @@ export class CartService {
     this.localStorage.has(this.getCartId())
       ? this.userHasCart(product, action)
       : this.userHasNotCart(product);
+  }
+
+  public getProductsCart(): ListProducts[] {
+    if (!this.localStorage.has(this.getCartId())) {
+      return [];
+    }
+    const cartProducts: CartShopping = JSON.parse(
+      localStorage.getItem(this.getCartId())
+    );
+    return cartProducts.products;
   }
 
   private getCartId(): string {

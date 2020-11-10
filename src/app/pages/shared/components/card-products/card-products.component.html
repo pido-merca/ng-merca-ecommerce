@@ -3,22 +3,35 @@
   <div class="card-body p-1">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text h6">{{ product.price | currency }}</p>
-    <div class="d-flex justify-content-center">
-      <button class="btn btn-danger btn-sm btn-more-less" (click)="actionCart(product, removeCart)">
-        <i class="fas fa-minus"></i>
+    <ng-container *ngIf="(hasCart$ | async) as product; else buttonCart">
+      <div class="d-flex justify-content-center">
+        <button
+          class="btn btn-danger btn-sm btn-more-less"
+          (click)="actionCart(product, removeCart)"
+        >
+          <i class="fas fa-minus"></i>
+        </button>
+        <input
+          type="text"
+          class="form-control text-center m-0"
+          disabled
+          [value]="product.quantity"
+        />
+        <button
+          class="btn btn-success btn-sm btn-more-less"
+          (click)="actionCart(product, addCart)"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #buttonCart>
+      <button
+        class="btn btn-info mt-3 mb-2 font-weight-bold"
+        (click)="actionCart(product, addCart)"
+      >
+        {{ "CART.CART-BUTTON" | transloco }}
       </button>
-      <input
-        type="text"
-        class="form-control text-center m-0"
-        disabled
-        value="8"
-      />
-      <button class="btn btn-success btn-sm btn-more-less" (click)="actionCart(product, addCart)">
-        <i class="fas fa-plus"></i>
-      </button>
-    </div>
-    <button class="btn btn-info mt-3 mb-2 font-weight-bold">
-      {{ "CART.CART-BUTTON" | transloco }}
-    </button>
+    </ng-template>
   </div>
 </div>

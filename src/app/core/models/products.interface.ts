@@ -5,4 +5,5 @@ export interface ListProducts {
   img: string;
   price: number;
   quantity?: number;
+  hasCart?: boolean;
 }
