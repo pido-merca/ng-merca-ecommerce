@@ -1,6 +1,14 @@
 <div [@routeAnimations]="animation(outlet)">
   <app-header></app-header>
   <router-outlet #outlet="outlet"></router-outlet>
-  <app-cart-bottom (clickOpen)="openCartModal($event)"></app-cart-bottom>
-  <app-cart-modal [isOpen]="isOpen" (clickOpen)="openCartModal($event)"></app-cart-modal>
+  <app-cart-bottom
+    (clickOpen)="openCartModal($event)"
+    [total]="total$ | async"
+  ></app-cart-bottom>
+  <app-cart-modal
+    [cartShopping]="cartShopping$ | async"
+    [isOpen]="isOpen"
+    (clickOpen)="openCartModal($event)"
+    (actionCart)="actionCart($event)"
+  ></app-cart-modal>
 </div>

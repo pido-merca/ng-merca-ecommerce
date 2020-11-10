@@ -29,7 +29,7 @@
 }
 
 .back-button {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   top: -80px;
@@ -50,6 +50,9 @@
   &.top {
     position: absolute;
     top: 8px;
+  }
+  &.visibility {
+    display: block;
   }
   &.animation {
     top: 10px;

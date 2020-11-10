@@ -1,5 +1,11 @@
 <div class="cart-bottom" (click)="clickOpen.emit(true)">
-   <div class="cart-info">
-       {{'CART.CART-EMPTY' | transloco}}: <span>$300.000</span>
-   </div>
+  <div class="cart-info">
+    <ng-container *ngIf="total > 0; else cartEmpty">
+      {{ "CART.CART-SHOW" | transloco }}:
+      <span>{{ total | currency }}</span>
+    </ng-container>
+    <ng-template #cartEmpty>
+      {{ "CART.CART-EMPTY" | transloco }}
+    </ng-template>
+  </div>
 </div>

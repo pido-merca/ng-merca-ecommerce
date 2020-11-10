@@ -4,7 +4,7 @@
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text h6">{{ product.price | currency }}</p>
     <div class="d-flex justify-content-center">
-      <button class="btn btn-danger btn-sm btn-more-less">
+      <button class="btn btn-danger btn-sm btn-more-less" (click)="actionCart(product, removeCart)">
         <i class="fas fa-minus"></i>
       </button>
       <input
@@ -13,7 +13,7 @@
         disabled
         value="8"
       />
-      <button class="btn btn-success btn-sm btn-more-less">
+      <button class="btn btn-success btn-sm btn-more-less" (click)="actionCart(product, addCart)">
         <i class="fas fa-plus"></i>
       </button>
     </div>

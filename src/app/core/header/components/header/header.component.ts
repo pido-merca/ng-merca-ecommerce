@@ -4,6 +4,7 @@ import {
   Component,
   HostListener,
   Inject,
+  OnInit,
 } from '@angular/core';
 import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 import { IS_BROWSER } from '@app/core/tokens/app.tokens';
@@ -19,11 +20,11 @@ import { homeRootRoute } from '@home/home-routing.module';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements AfterViewInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
   public headerAnimation = false;
   private scrollTopAnimation = 190;
-  public isHome: boolean;
+  public isHome: boolean = false;
   public showTooltip: boolean;
 
   constructor(
@@ -32,6 +33,10 @@ export class HeaderComponent implements AfterViewInit {
     private changeDetector: ChangeDetectorRef,
     @Inject(IS_BROWSER) public isBrowser: boolean
   ) {}
+
+  ngOnInit(): void {
+    this.isHome = false;
+  }
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(
     event: Event

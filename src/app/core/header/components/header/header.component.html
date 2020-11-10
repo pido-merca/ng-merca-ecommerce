@@ -38,10 +38,10 @@
     </div>
   </div>
   <span
+    [class.visibility]="!isHome"
     class="back-button"
     [class.top]="!isHome && !headerAnimation"
     (click)="goHome()"
-    *ngIf="!isHome"
     [class.animation]="headerAnimation"
     placement="right"
   >

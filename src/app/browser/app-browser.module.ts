@@ -12,6 +12,7 @@ import {
   SESSION_STORAGE,
 } from '@core/tokens/app.tokens';
 
+
 export function getLocalStorage(): LocalStorage {
   return {
     getItem(key: string): string {

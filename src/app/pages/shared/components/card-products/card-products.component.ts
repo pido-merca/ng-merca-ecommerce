@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ListProducts } from '@app/core/models/products.interface';
+import { actions } from '@cart/constants/cart.constants';
+import { ListProducts } from '@core/models/products.interface';
+import { CartService } from '@core/services/cart.service';
 
 @Component({
   selector: 'app-card-products',
@@ -10,5 +12,13 @@ import { ListProducts } from '@app/core/models/products.interface';
 export class CardProductsComponent {
 
   @Input() product: ListProducts;
-  constructor() {}
+
+  public addCart = actions.add;
+  public removeCart = actions.remove;
+
+  constructor(private cartService: CartService) {}
+
+  public actionCart(product: ListProducts, action: string): void {
+    this.cartService.actionCart(product, action);
+  }
 }

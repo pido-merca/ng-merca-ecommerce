@@ -8,7 +8,7 @@ export const MIN_WIDTH_MOBILE = 1023;
   providedIn: 'root',
 })
 export class MobileService {
-    
+
   public isMobileDeviceSubject$: BehaviorSubject<boolean> = new BehaviorSubject(
     this.isMobile || typeof window !== 'undefined'
       ? window.innerWidth <= MIN_WIDTH_MOBILE
