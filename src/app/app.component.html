@@ -7,8 +7,11 @@
   ></app-cart-bottom>
   <app-cart-modal
     [cartShopping]="cartShopping$ | async"
+    [total]="total$ | async"
+    [isMobile]="isMobile$ | async"
     [isOpen]="isOpen"
     (clickOpen)="openCartModal($event)"
     (actionCart)="actionCart($event)"
+    (cleanCart)="cleanCart($event)"
   ></app-cart-modal>
 </div>

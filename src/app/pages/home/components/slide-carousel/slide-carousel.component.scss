@@ -8,7 +8,7 @@
 .wrapper {
   position: relative;
   overflow-x: auto;
-  display: block !important;
+  display: block;
   white-space: nowrap;
   &.row {
     flex-wrap: nowrap;
@@ -28,6 +28,7 @@
     }
   }
 }
+
 
 .next-button,
 .previous-button {

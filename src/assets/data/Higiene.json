@@ -1,0 +1,86 @@
+[
+  {
+    "id": 7,
+    "categories": "Higiene",
+    "name": "Hilo dental",
+    "img": "assets/img/dental_floss.jpg",
+    "price": 5000
+  },
+  {
+    "id": 9,
+    "categories": "Higiene",
+    "name": "Acondicionador",
+    "img": "assets/img/conditioner.jpg",
+    "price": 6900
+  },
+  {
+    "id": 10,
+    "categories": "Higiene",
+    "name": "Anti transpirante Mujer",
+    "img": "assets/img/antiperspirant_woman.jpg",
+    "price": 2300
+  },
+  {
+    "id": 11,
+    "categories": "Higiene",
+    "name": "Anti transpirante",
+    "img": "assets/img/antiperspirant_man.jpg",
+    "price": 1500
+  },
+  {
+    "id": 15,
+    "categories": "Higiene",
+    "name": "Jabón de liquido",
+    "img": "assets/img/hand_soap.jpg",
+    "price": 3500
+  },
+  {
+    "id": 18,
+    "categories": "Higiene",
+    "name": "Jabón de baño",
+    "img": "assets/img/bath_soap.jpg",
+    "price": 600
+  },
+  {
+    "id": 22,
+    "categories": "Higiene",
+    "name": "Listerine",
+    "img": "assets/img/mouthwash.jpg",
+    "price": 600
+  },
+  {
+    "id": 23,
+    "categories": "Higiene",
+    "name": "Shampoo",
+    "img": "assets/img/shampoo.jpg",
+    "price": 10000
+  },
+  {
+    "id": 24,
+    "categories": "Higiene",
+    "name": "Prestobarba",
+    "img": "assets/img/shaver.jpg",
+    "price": 1000
+  },
+  {
+    "id": 25,
+    "categories": "Higiene",
+    "name": "Papel de baño",
+    "img": "assets/img/toilet_paper.jpg",
+    "price": 1500
+  },
+  {
+    "id": 26,
+    "categories": "Higiene",
+    "name": "Colgate",
+    "img": "assets/img/toohtpaste.jpg",
+    "price": 1500
+  },
+  {
+    "id": 27,
+    "categories": "Higiene",
+    "name": "Cepillo",
+    "img": "assets/img/toothbrush.jpg",
+    "price": 1750
+  }
+]

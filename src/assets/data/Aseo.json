@@ -1,0 +1,44 @@
+[
+  {
+    "id": 12,
+    "categories": "Aseo",
+    "name": "Limpiador de ventanas",
+    "img": "assets/img/window_cleaner.jpg",
+    "price": 1200
+  },
+  {
+    "id": 13,
+    "categories": "Aseo",
+    "name": "Jabón de lavar",
+    "img": "assets/img/laundry_soap.jpg",
+    "price": 3000
+  },
+  {
+    "id": 14,
+    "categories": "Aseo",
+    "name": "Jabón de cocina",
+    "img": "assets/img/kitchen_soap.jpg",
+    "price": 1800
+  },
+  {
+    "id": 16,
+    "categories": "Aseo",
+    "name": "Desinfectante",
+    "img": "assets/img/disinfectant.jpg",
+    "price": 800
+  },
+  {
+    "id": 17,
+    "categories": "Aseo",
+    "name": "Raid Max",
+    "img": "assets/img/clean_furniture.jpg",
+    "price": 4200
+  },
+  {
+    "id": 19,
+    "categories": "Aseo",
+    "name": "Limpia Pisos",
+    "img": "assets/img/clean_floors.jpg",
+    "price": 3000
+  }
+]

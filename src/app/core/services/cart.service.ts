@@ -16,6 +16,7 @@ export class CartService {
   private idBusiness = 1;
   private nameBusiness = 'Deposito Duques';
   private imgBusiness = 'assets/img/user.jpg';
+  public value: number;
 
   constructor(@Inject(LOCAL_STORAGE) private localStorage: LocalStorage) {}
 
@@ -43,7 +44,8 @@ export class CartService {
     }
   }
 
-  public actionCart(product: ListProducts, action: string): void {
+  public actionCart(product: ListProducts, action: string, value: number): void {
+    this.value = value;
     this.localStorage.has(this.getCartId())
       ? this.userHasCart(product, action)
       : this.userHasNotCart(product);
@@ -57,6 +59,13 @@ export class CartService {
       localStorage.getItem(this.getCartId())
     );
     return cartProducts.products;
+  }
+
+  public getProductCart(product: ListProducts, cart: CartShopping): ListProducts {
+    const hasProduct = cart.products?.find(
+      (item) => product.id === item.id
+    );
+    return hasProduct;
   }
 
   private getCartId(): string {
@@ -85,7 +94,7 @@ export class CartService {
   private incrementQuantity(hasProduct: ListProducts): void {
     this.cartStorage.products.map((product) => {
       if (product.id === hasProduct.id) {
-        hasProduct.quantity += 1;
+        hasProduct.quantity += this.value;
       }
     });
   }
@@ -94,7 +103,7 @@ export class CartService {
     let remove = false;
     this.cartStorage.products.map((product) => {
       if (product.id === hasProduct.id) {
-        hasProduct.quantity -= 1;
+        hasProduct.quantity -= this.value;
         if (hasProduct.quantity <= 0) {
           remove = true;
         }
@@ -134,7 +143,13 @@ export class CartService {
   private buildProduct(product: ListProducts): ListProducts {
     return {
       ...product,
-      quantity: 1,
+      quantity: this.value,
     };
+  }
+
+  public clearCart(): void {
+    this.cartStorage = {} as CartShopping;
+    this.localStorage.removeItem(this.getCartId());
+    this.cartShopping.next(this.cartStorage);
   }
 }

@@ -20,17 +20,18 @@ export class CardProductsComponent {
   constructor(private cartService: CartService) {}
 
   public actionCart(product: ListProducts, action: string): void {
-    this.cartService.actionCart(product, action);
+    const value =
+      product.categories === 'Carnes' || product.categories === 'Granos'
+        ? 0.5
+        : 1;
+    this.cartService.actionCart(product, action, value);
   }
 
   get hasCart$(): Observable<ListProducts> {
     return this.cartService.cartShopping$.pipe(
-      map((cart) => {
-        const product = cart.products.find(
-          (item) => this.product.id === item.id
-        );
-        return product;
-      })
+      map((cart) =>
+        !!cart ? this.cartService.getProductCart(this.product, cart) : null
+      )
     );
   }
 }

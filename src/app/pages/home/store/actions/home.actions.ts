@@ -18,3 +18,12 @@ export const loadProductsDataSuccess = createAction(
   type('[Global/API] Load products data success'),
   props<{ products: ListProducts[] }>()
 );
+
+export const loadProductsByCategoryDataAction = createAction(
+  type('[Global/API] Load products by category data'),
+  props<{ category: string }>()
+);
+export const loadProductsByCategoryDataSuccess = createAction(
+  type('[Global/API] Load products by category data success'),
+  props<{ products: ListProducts[] }>()
+);

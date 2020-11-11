@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ListCategories } from '@app/core/models/categories.interface';
 import { ListProducts } from '@app/core/models/products.interface';
 import { MobileService } from '@core/services/mobile.service';
 import { HomeFacade } from '@home/home.facade';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -12,8 +12,9 @@ import { map } from 'rxjs/operators';
   templateUrl: './home-item.component.html',
   styleUrls: ['./home-item.component.scss'],
 })
-export class HomeItemComponent implements OnInit {
+export class HomeItemComponent implements OnInit, OnDestroy {
   public nameCategory: string;
+  private subscriptions: Subscription = new Subscription();
 
   constructor(
     private homeFacade: HomeFacade,
@@ -21,13 +22,20 @@ export class HomeItemComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
   ngOnInit(): void {
-    this.route.params.subscribe((param) => {
-      this.nameCategory = param.category;
-    });
+    this.subscriptions.add(
+      this.route.params.subscribe(
+        (param) => {
+          this.nameCategory = param.category;
+          this.homeFacade.fetchAllProductsByCategory(this.nameCategory);
+        }
+      )
+    );
     this.homeFacade.fetchAllCategories();
-    this.homeFacade.fetchAllProducts();
-    console.log(this.nameCategory);
   }
 
   get allCategories$(): Observable<ListCategories[]> {

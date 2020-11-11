@@ -1,0 +1,51 @@
+[
+  {
+    "id": 2,
+    "categories": "Granos",
+    "name": "Lentejas",
+    "img": "assets/img/lentil.jpg",
+    "price": 1200
+  },
+  {
+    "id": 6,
+    "categories": "Granos",
+    "name": "Harina",
+    "img": "assets/img/flour.jpg",
+    "price": 6500
+  },
+  {
+    "id": 8,
+    "categories": "Granos",
+    "name": "Maiz",
+    "img": "assets/img/corn.jpg",
+    "price": 3800
+  },
+  {
+    "id": 28,
+    "categories": "Granos",
+    "name": "Avena",
+    "img": "assets/img/oats.jpg",
+    "price": 1900
+  },
+  {
+    "id": 29,
+    "categories": "Granos",
+    "name": "Azúcar",
+    "img": "assets/img/sugar.jpg",
+    "price": 1200
+  },
+  {
+    "id": 33,
+    "categories": "Granos",
+    "name": "Arroz",
+    "img": "assets/img/rice.jpg",
+    "price": 1200
+  },
+  {
+    "id": 34,
+    "categories": "Granos",
+    "name": "Sal",
+    "img": "assets/img/salt.jpg",
+    "price": 1330
+  }
+]

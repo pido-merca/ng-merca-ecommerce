@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "categories": "Frutas",
+    "name": "Manzanas",
+    "img": "assets/img/apple.jpg",
+    "price": 1200
+  },
+  {
+    "id": 3,
+    "categories": "Frutas",
+    "name": "Uvas",
+    "img": "assets/img/grape.jpg",
+    "price": 4000
+  },
+  {
+    "id": 4,
+    "categories": "Frutas",
+    "name": "Fresas",
+    "img": "assets/img/cherry.jpg",
+    "price": 6000
+  },
+  {
+    "id": 5,
+    "categories": "Frutas",
+    "name": "Frambuesas",
+    "img": "assets/img/blackberry.jpg",
+    "price": 9000
+  },
+  {
+    "id": 20,
+    "categories": "Frutas",
+    "name": "Lulo",
+    "img": "assets/img/lulo.jpg",
+    "price": 3050
+  },
+  {
+    "id": 21,
+    "categories": "Frutas",
+    "name": "Mango",
+    "img": "assets/img/mango.jpg",
+    "price": 2150
+  },
+  {
+    "id": 30,
+    "categories": "Frutas",
+    "name": "Naranja",
+    "img": "assets/img/orange.jpg",
+    "price": 1150
+  },
+  {
+    "id": 31,
+    "categories": "Frutas",
+    "name": "Papaya",
+    "img": "assets/img/papaya.jpg",
+    "price": 1150
+  },
+  {
+    "id": 32,
+    "categories": "Frutas",
+    "name": "Pera",
+    "img": "assets/img/pear.jpg",
+    "price": 700
+  }
+]

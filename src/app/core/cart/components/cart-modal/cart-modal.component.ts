@@ -16,8 +16,11 @@ export class CartModalComponent {
   public removeCart = actions.remove;
 
   @Input() isOpen: boolean;
+  @Input() isMobile: boolean;
   @Input() cartShopping: CartShopping;
+  @Input() total: number;
   @Output() clickOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() cleanCart: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionCart: EventEmitter<ActionCart> = new EventEmitter<
     ActionCart
   >();

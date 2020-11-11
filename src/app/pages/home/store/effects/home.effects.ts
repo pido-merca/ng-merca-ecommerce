@@ -6,6 +6,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   loadCategoriesDataAction,
   loadCategoriesDataSuccess,
+  loadProductsByCategoryDataAction,
   loadProductsDataAction,
   loadProductsDataSuccess,
 } from '@home/store/actions';
@@ -35,6 +36,23 @@ export class HomeEffects {
     this.action$.pipe(
       ofType(loadProductsDataAction),
       switchMap(() => this.productsService.fetchAllProducts()),
+      map((response) => {
+        response.map((product) => {
+          product.hasCart = false;
+          product.quantity = 0;
+        });
+        return loadProductsDataSuccess({ products: response });
+      }),
+      catchError(() => {
+        return EMPTY;
+      })
+    )
+  );
+
+  fetchProductsByCategoryData$: Observable<Action> = createEffect(() =>
+    this.action$.pipe(
+      ofType(loadProductsByCategoryDataAction),
+      switchMap((action) => this.productsService.fetchAllProductsByCategory(action.category)),
       map((response) => {
         response.map((product) => {
           product.hasCart = false;

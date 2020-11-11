@@ -1,0 +1,37 @@
+[
+  {
+    "id": 35,
+    "categories": "Carnes",
+    "name": "Carne de res",
+    "img": "assets/img/pexels-markus-spiske-112781.jpg",
+    "price": 5700
+  },
+  {
+    "id": 36,
+    "categories": "Carnes",
+    "name": "Carne de cerdo",
+    "img": "assets/img/pexels-pixelme-stock-photography-2773942.jpg",
+    "price": 4500
+  },
+  {
+    "id": 37,
+    "categories": "Carnes",
+    "name": "Pescado",
+    "img": "assets/img/pexels-engin-akyurt-2042564.jpg",
+    "price": 4000
+  },
+  {
+    "id": 38,
+    "categories": "Carnes",
+    "name": "Pechuga de pollo",
+    "img": "assets/img/pexels-olya-kobruseva-5769381.jpg",
+    "price": 3500
+  },
+  {
+    "id": 39,
+    "categories": "Carnes",
+    "name": "Chorizo",
+    "img": "assets/img/pexels-luis-quintero-1857729.jpg",
+    "price": 3500
+  }
+]
