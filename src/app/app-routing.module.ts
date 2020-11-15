@@ -18,6 +18,19 @@ const routes: Routes = [
       }
     },
   },
+  {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./pages/checkout/checkout.module').then((m) => m.CheckoutModule),
+    data: {
+      animation: homeRootAnimation,
+      header_style: {
+        style: HEADER_STYLE.BANNER,
+        title: HEADER_TITLES.HOME,
+        showTitle: false
+      }
+    },
+  },
 ];
 
 

@@ -44,7 +44,7 @@ export class SlideCategoriesComponent implements OnInit, AfterViewInit {
 
   public redirectHomeItem(name: string): void {
     this.nameCategory = name;
-    this.router.navigate(['/', name]);
+    this.router.navigate(['/home', name]);
   }
 
   public isActive(name: string): boolean {
