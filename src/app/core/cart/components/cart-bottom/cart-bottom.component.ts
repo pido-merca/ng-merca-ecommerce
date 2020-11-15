@@ -16,5 +16,6 @@ export class CartBottomComponent {
 
   @Output() clickOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() total: number;
+  @Input() show: boolean;
   constructor() {}
 }

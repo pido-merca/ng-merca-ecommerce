@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { IS_BROWSER } from '@core/tokens/app.tokens';
 import { routeAnimations } from '@pages/ux/animations/routing-animation';
 import { DomManipulateService } from '@core/services/dom-manipulate.service';
@@ -9,6 +9,7 @@ import { ActionCart } from '@core/models/action-cart.interface';
 import { MobileService } from '@core/services/mobile.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { homeRootRoute } from '@home/home-routing.module';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,13 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements OnInit {
 
   public isOpen: boolean;
+  public isShowCart: boolean;
 
   constructor(
     @Inject(IS_BROWSER) public isBrowser: boolean,
     private mobileDeviceService: MobileService,
     private domManipulateService: DomManipulateService,
-    private cartService: CartService
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
@@ -73,5 +75,10 @@ export class AppComponent implements OnInit {
 
   public cleanCart(event: boolean): void {
     this.cartService.clearCart();
+  }
+
+  public showCart(show: boolean): void {
+    console.log(show);
+    this.isShowCart = show;
   }
 }

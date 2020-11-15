@@ -19,6 +19,7 @@ export class CartModalComponent {
   @Input() isMobile: boolean;
   @Input() cartShopping: CartShopping;
   @Input() total: number;
+  @Input() show: boolean;
   @Output() clickOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() cleanCart: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionCart: EventEmitter<ActionCart> = new EventEmitter<

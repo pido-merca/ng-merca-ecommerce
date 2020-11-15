@@ -1,86 +1,88 @@
-<div class="container cart-modal" [class.active]="isOpen">
-  <ng-container *ngIf="cartShopping.id; else cartEmpty">
-    <div class="media pb-2">
-      <img
-        [src]="cartShopping.img"
-        class="mr-3 rounded-circle"
-        width="64"
-        height="64"
-      />
-      <div class="media-body">
-        <h5 class="mt-0">{{ cartShopping.name }}</h5>
-        <button class="btn btn-danger font-weight-bold" (click)="toggleModal()">
-          Cerrar
-        </button>
+<ng-container *ngIf="show">
+  <div class="container cart-modal" [class.active]="isOpen">
+    <ng-container *ngIf="cartShopping.id; else cartEmpty">
+      <div class="media pb-2">
+        <img
+          [src]="cartShopping.img"
+          class="mr-3 rounded-circle"
+          width="64"
+          height="64"
+        />
+        <div class="media-body">
+          <h5 class="mt-0">{{ cartShopping.name }}</h5>
+          <button class="btn btn-danger font-weight-bold" (click)="toggleModal()">
+            Cerrar
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="cart-wrapper">
-      <ul class="list-group mt-4">
-        <li
-          class="list-group-item"
-          *ngFor="let product of cartShopping.products"
-        >
-          <div class="media">
-            <img
-              [src]="product.img"
-              class="mr-3 rounded-circle"
-              width="64"
-              height="64"
-            />
-            <div class="media-body">
-              <h5 class="mt-0">{{ product.name }}</h5>
-              <p>{{ product.price | currency }}</p>
-            </div>
-            <div class="media-body">
-              <div class="d-flex justify-content-center">
-                <button
-                  class="btn btn-danger btn-sm btn-more-less"
-                  (click)="sendActionCart(product, removeCart)"
-                >
-                  <i class="fas fa-minus"></i>
-                </button>
-                <input
-                  type="text"
-                  class="form-control text-center ml-4 mr-4"
-                  disabled
-                  [value]="product.quantity"
-                />
-                <button
-                  class="btn btn-success btn-sm btn-more-less"
-                  (click)="sendActionCart(product, addCart)"
-                >
-                  <i class="fas fa-plus"></i>
-                </button>
+      <div class="cart-wrapper">
+        <ul class="list-group mt-4">
+          <li
+            class="list-group-item"
+            *ngFor="let product of cartShopping.products"
+          >
+            <div class="media">
+              <img
+                [src]="product.img"
+                class="mr-3 rounded-circle"
+                width="64"
+                height="64"
+              />
+              <div class="media-body">
+                <h5 class="mt-0">{{ product.name }}</h5>
+                <p>{{ product.price | currency }}</p>
+              </div>
+              <div class="media-body">
+                <div class="d-flex justify-content-center">
+                  <button
+                    class="btn btn-danger btn-sm btn-more-less"
+                    (click)="sendActionCart(product, removeCart)"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <input
+                    type="text"
+                    class="form-control text-center ml-4 mr-4"
+                    disabled
+                    [value]="product.quantity"
+                  />
+                  <button
+                    class="btn btn-success btn-sm btn-more-less"
+                    (click)="sendActionCart(product, addCart)"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-4">
-        <button
-          class="btn btn-info btn-block font-weight-bold"
-          (click)="cleanCart.emit(true)"
-        >
-          <ng-container *ngIf="isMobile; else cartEmpty"> Vaciar </ng-container>
-          <ng-template #cartEmpty> Vaciar carrito </ng-template>
-        </button>
+          </li>
+        </ul>
       </div>
-      <div class="col-lg-6 col-8">
-        <button class="btn btn-success btn-block font-weight-bold">
-          ir a pagar
-          <span class="badge badge-light">{{ total | currency }}</span>
-        </button>
+      <div class="row">
+        <div class="col-lg-6 col-4">
+          <button
+            class="btn btn-info btn-block font-weight-bold"
+            (click)="cleanCart.emit(true)"
+          >
+            <ng-container *ngIf="isMobile; else cartEmpty"> Vaciar </ng-container>
+            <ng-template #cartEmpty> Vaciar carrito </ng-template>
+          </button>
+        </div>
+        <div class="col-lg-6 col-8">
+          <button class="btn btn-success btn-block font-weight-bold">
+            ir a pagar
+            <span class="badge badge-light">{{ total | currency }}</span>
+          </button>
+        </div>
       </div>
-    </div>
-  </ng-container>
-  <ng-template #cartEmpty>
-    <h1>Carrito vacio</h1>
-    <button class="btn btn-danger font-weight-bold" (click)="toggleModal()">
-      Cerrar
-    </button>
-  </ng-template>
-</div>
-
-<div class="modal-bg" (click)="toggleModal()" [class.active]="isOpen"></div>
+    </ng-container>
+    <ng-template #cartEmpty>
+      <h1>Carrito vacio</h1>
+      <button class="btn btn-danger font-weight-bold" (click)="toggleModal()">
+        Cerrar
+      </button>
+    </ng-template>
+  </div>
+  
+  <div class="modal-bg" (click)="toggleModal()" [class.active]="isOpen"></div>
+</ng-container>

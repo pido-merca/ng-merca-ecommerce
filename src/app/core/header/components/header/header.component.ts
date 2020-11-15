@@ -2,9 +2,11 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   HostListener,
   Inject,
   OnInit,
+  Output,
 } from '@angular/core';
 import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
 import { IS_BROWSER } from '@app/core/tokens/app.tokens';
@@ -21,11 +23,12 @@ import { homeRootRoute } from '@home/home-routing.module';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-
   public headerAnimation = false;
   private scrollTopAnimation = 190;
   public isHome: boolean = false;
   public showTooltip: boolean;
+
+  @Output() showCart: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
@@ -67,6 +70,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
           }
           if (router instanceof NavigationEnd) {
             this.isHome = this.IsRootHome;
+            this.showCart.emit(!this.isRootCheckout);
           }
         });
     }
@@ -86,6 +90,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   get IsRootHome(): boolean {
     return this.currentRoute === homeRootRoute;
+  }
+
+  get isRootCheckout(): boolean {
+    return (
+      this.currentRoute === '/checkout' ||
+      this.currentRoute === '/checkout/check'
+    );
   }
 
   public typeHeaderBanner(typeHeader: string): boolean {

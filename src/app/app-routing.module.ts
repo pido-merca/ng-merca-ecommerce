@@ -25,7 +25,7 @@ const routes: Routes = [
     data: {
       animation: homeRootAnimation,
       header_style: {
-        style: HEADER_STYLE.BANNER,
+        style: HEADER_STYLE.NONE,
         title: HEADER_TITLES.HOME,
         showTitle: false
       }
